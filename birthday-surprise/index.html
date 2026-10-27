@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#180c14" />
+  <title>Za tebe ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="hearts" aria-hidden="true"></div>
+
+  <main class="page">
+    <section class="intro" id="intro">
+      <div class="card">
+        <div class="tiny-heart">♥</div>
+        <p class="eyebrow">jedno malo iznenađenje</p>
+        <h1>Za tebe, ljubavi.</h1>
+        <p class="lead">Za tvoj rođendan želim ti pokloniti nekoliko naših trenutaka, uspomena i jednu poruku koju možeš sačuvati zauvijek.</p>
+        <button class="open-btn" id="openGift" type="button">
+          <span>Otvori poklon</span><span class="btn-heart">♥</span>
+        </button>
+        <p class="hint">Stavi zvuk malo glasnije ♫</p>
+      </div>
+    </section>
+
+    <section class="gift" id="gift" aria-hidden="true">
+      <div class="video-shell">
+        <div class="video-heading">
+          <span class="line"></span>
+          <span>Happy Birthday</span>
+          <span class="line"></span>
+        </div>
+        <div class="video-frame">
+          <video id="birthdayVideo" controls playsinline preload="metadata" poster="">
+            <source src="video.mp4" type="video/mp4" />
+            <!-- Kada dobijemo titlove, ovdje dodajemo: <track kind="subtitles" src="subtitles.vtt" srclang="hr" label="Titlovi" default> -->
+            Tvoj preglednik ne podržava video.
+          </video>
+        </div>
+        <p class="after-message" id="afterMessage">Sretan rođendan. Volim te. ❤️</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+:root {
+  --bg: #140a11;
+  --bg2: #2a101d;
+  --cream: #fff8f2;
+  --rose: #e7a4ad;
+  --rose-light: #ffd6da;
+  --wine: #8f3048;
+  --glass: rgba(255,255,255,.075);
+  --border: rgba(255,255,255,.14);
+}
+* { box-sizing: border-box; }
+html { min-height: 100%; background: var(--bg); }
+body {
+  margin: 0;
+  min-height: 100svh;
+  color: var(--cream);
+  font-family: 'Montserrat', sans-serif;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(176,60,91,.25), transparent 34%),
+    radial-gradient(circle at 82% 85%, rgba(111,35,63,.28), transparent 32%),
+    linear-gradient(145deg, var(--bg), var(--bg2));
+  overflow-x: hidden;
+}
+.ambient {
+  position: fixed; inset: 0; pointer-events: none;
+  background: radial-gradient(circle at 50% 42%, rgba(255,214,218,.07), transparent 28%);
+}
+.page { min-height: 100svh; position: relative; z-index: 2; }
+.intro, .gift {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: max(24px, env(safe-area-inset-top)) 20px max(28px, env(safe-area-inset-bottom));
+}
+.card {
+  width: min(100%, 520px);
+  text-align: center;
+  padding: 42px 25px 36px;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  background: linear-gradient(160deg, rgba(255,255,255,.105), rgba(255,255,255,.035));
+  box-shadow: 0 28px 90px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.09);
+  backdrop-filter: blur(16px);
+}
+.tiny-heart { color: var(--rose); font-size: 31px; animation: pulse 1.8s ease-in-out infinite; }
+.eyebrow {
+  margin: 12px 0 8px;
+  text-transform: uppercase;
+  letter-spacing: .24em;
+  font-size: 10px;
+  color: rgba(255,248,242,.62);
+}
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(46px, 13vw, 72px);
+  line-height: .92;
+  margin: 17px 0 23px;
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
+.lead {
+  max-width: 430px;
+  margin: 0 auto 31px;
+  color: rgba(255,248,242,.78);
+  font-size: 14px;
+  line-height: 1.85;
+}
+.open-btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 16px 25px;
+  min-width: 205px;
+  color: #fff9f6;
+  font: 600 13px 'Montserrat', sans-serif;
+  letter-spacing: .035em;
+  background: linear-gradient(135deg, #b74b66, #7f2941);
+  box-shadow: 0 13px 35px rgba(143,48,72,.42);
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.open-btn:active { transform: scale(.97); }
+.btn-heart { margin-left: 8px; }
+.hint { margin: 18px 0 0; font-size: 10px; color: rgba(255,248,242,.45); }
+.gift { display: none; opacity: 0; }
+.gift.show { display: grid; animation: reveal .9s ease forwards; }
+.video-shell { width: min(100%, 520px); text-align: center; }
+.video-heading {
+  display: flex; align-items: center; gap: 13px; justify-content: center;
+  margin-bottom: 17px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  letter-spacing: .07em;
+  color: var(--rose-light);
+}
+.line { width: 42px; height: 1px; background: rgba(255,214,218,.34); }
+.video-frame {
+  position: relative;
+  padding: 7px;
+  border-radius: 27px;
+  background: linear-gradient(145deg, rgba(255,214,218,.36), rgba(255,255,255,.06));
+  box-shadow: 0 25px 85px rgba(0,0,0,.5);
+}
+video {
+  display: block;
+  width: 100%;
+  max-height: 78svh;
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+  background: #000;
+  border-radius: 21px;
+}
+.after-message {
+  opacity: 0;
+  transform: translateY(8px);
+  margin: 22px 0 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 25px;
+  color: var(--rose-light);
+  transition: .8s ease;
+}
+.after-message.show { opacity: 1; transform: none; }
+.floating-heart {
+  position: fixed;
+  bottom: -30px;
+  z-index: 1;
+  color: rgba(231,164,173,.2);
+  animation: floatUp linear forwards;
+  pointer-events: none;
+}
+@keyframes pulse { 50% { transform: scale(1.14); filter: drop-shadow(0 0 12px rgba(231,164,173,.55)); } }
+@keyframes reveal { from { opacity: 0; transform: scale(.985); } to { opacity: 1; transform: none; } }
+@keyframes floatUp { to { transform: translateY(-115vh) rotate(25deg); opacity: 0; } }
+@media (min-width: 700px) {
+  .card { padding: 55px 48px 44px; }
+  .lead { font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}
